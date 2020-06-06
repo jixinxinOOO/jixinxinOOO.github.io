@@ -294,6 +294,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/Android/Android%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="草根码农">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="撒哈拉少爷的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/28/Android/Android%E5%9F%BA%E7%A1%80/" itemprop="url">Android基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T17:49:26+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/28/Android/Android%E5%9F%BA%E7%A1%80/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/28/Android/Android基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/28/Android/Android%E5%9F%BA%E7%A1%80/" class="leancloud_visitors" data-flag-title="Android基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1、Button的Text英文字体都是大写"><a href="#1、Button的Text英文字体都是大写" class="headerlink" title="1、Button的Text英文字体都是大写"></a>1、Button的Text英文字体都是大写</h3><p>android:textAllCaps=”false”<br><br>全为大写字母这个属性改为false</p>
+<h3 id="2、Button字体的间距和边框间距较大的时候"><a href="#2、Button字体的间距和边框间距较大的时候" class="headerlink" title="2、Button字体的间距和边框间距较大的时候"></a>2、Button字体的间距和边框间距较大的时候</h3><p>android:layout_height=”wrap_content”<br><br>android:layout_height=”@dimen/height_45”<br><br>高度不要设置成wrap_content而是设置成具体的值</p>
+<h3 id="3、Android完美检测键盘弹出-收起"><a href="#3、Android完美检测键盘弹出-收起" class="headerlink" title="3、Android完美检测键盘弹出/收起"></a>3、Android完美检测键盘弹出/收起</h3><pre>
+
+private void setListenerToRootView() {  
+    final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);  
+    rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {  
+        @Override  
+        public void onGlobalLayout() {  
+            LogUtils.d(TAG, "[onGlobalLayout] .. in ..");  
+            boolean mKeyboardUp = isKeyboardShown(rootView);  
+            if (mKeyboardUp) {  
+                LogUtils.d(TAG, "键盘弹出..");  
+            } else {  
+                LogUtils.d(TAG, "键盘收起..");  
+            }  
+        }  
+    });  
+}  
+
+private boolean isKeyboardShown(View rootView) {  
+    final int softKeyboardHeight = 100;  
+    Rect r = new Rect();  
+    rootView.getWindowVisibleDisplayFrame(r);  
+    DisplayMetrics dm = rootView.getResources().getDisplayMetrics();  
+    int heightDiff = rootView.getBottom() - r.bottom;  
+    return heightDiff > softKeyboardHeight * dm.density;  
+}  
+
+
+</pre>
+
+<h3 id="4、ListView点击条目去掉水波纹效果"><a href="#4、ListView点击条目去掉水波纹效果" class="headerlink" title="4、ListView点击条目去掉水波纹效果"></a>4、ListView点击条目去掉水波纹效果</h3><pre><code>&lt;ListView
+       android:listSelector=&quot;@android:color/transparent&quot;
+       android:id=&quot;@+id/schedule_list&quot;
+       android:layout_below=&quot;@id/diverd_line&quot;
+       android:layout_width=&quot;match_parent&quot;
+       android:layout_height=&quot;match_parent&quot;&gt;    </code></pre><h3 id="5、textView-color设置"><a href="#5、textView-color设置" class="headerlink" title="5、textView color设置"></a>5、textView color设置</h3><pre>mMinuteTip.setTextColor(Color.parseColor("#6495ED"));</pre>
+
+<h3 id="6、RadioGroup"><a href="#6、RadioGroup" class="headerlink" title="6、RadioGroup"></a>6、RadioGroup</h3><p>它有一个clearCheck方法可以把所有选中的RadioButton都取消选中，不用手动对每一个RadioButton进行取消设置，而且手动取消设置还有错误</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/Android/AndroidStudio%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1744,7 +1925,7 @@ hexo d -g #生成并上传</code></pre>
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
