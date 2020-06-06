@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/12/28/Android/Android%E9%80%9A%E7%9F%A5%E6%A0%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -313,7 +313,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">Android通知栏</a></h1>
+                <a class="post-title-link" href="/year/12/28/Android/Android%E9%80%9A%E7%9F%A5%E6%A0%8F/" itemprop="url">Android通知栏</a></h1>
         
 
         <div class="post-meta">
@@ -344,9 +344,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/12/28/Android/Android%E9%80%9A%E7%9F%A5%E6%A0%8F/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/12/28/Android/Android通知栏/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -407,8 +407,7 @@
 
       
         
-          
-            <h1 id="1、通知栏基本使用"><a href="#1、通知栏基本使用" class="headerlink" title="1、通知栏基本使用"></a>1、通知栏基本使用</h1><pre>
+          <h1 id="1、通知栏基本使用"><a href="#1、通知栏基本使用" class="headerlink" title="1、通知栏基本使用"></a>1、通知栏基本使用</h1><pre>
     /**
      * 通知栏
      * @param context
@@ -443,63 +442,13 @@
         notificationManager.notify("1", id, builder.build());
     }
 </pre>
-
-<h1 id="2、自定义通知栏"><a href="#2、自定义通知栏" class="headerlink" title="2、自定义通知栏"></a>2、自定义通知栏</h1><pre>
-        /**
-     * 通知栏
-     * @param context
-     * @param id
-     * @param title
-     * @param text
-     */
-    private void showNotification(Context context, int id, String title, String text, boolean ifOpen) {
-        //自定义通知栏布局
-        RemoteViews mRemoteViews = new RemoteViews(getPackageName(), R.layout.view_custom_notification);
-
-        try {
-            String currentTime = DateTool.exchangeStringTime2(DateTool.getSpecifiedTime3(Calendar.getInstance()));
-            mRemoteViews.setTextViewText(R.id.tv_notification_time, currentTime);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        mRemoteViews.setTextViewText(R.id.tv_notification_info, text);
-        mRemoteViews.setTextViewText(R.id.tv_notification_app_name, title);
-        mRemoteViews.setTextColor(R.id.tv_notification_info, Color.BLACK);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-        builder.setContent(mRemoteViews)
-                .setWhen(System.currentTimeMillis())// 通知产生的时间，会在通知信息里显示
-                .setPriority(Notification.PRIORITY_DEFAULT)// 设置该通知优先级
-                .setOngoing(true)
-                .setShowWhen(false)
-                .setTicker("有新的软件更新")
-                .setSmallIcon(R.drawable.ic_launcher);//这个属性是自定义通知里面必须要传递的，否则通知不显示
-        builder.setAutoCancel(true);
-        builder.setOnlyAlertOnce(true);
-        // 需要VIBRATE权限
-        builder.setDefaults(Notification.DEFAULT_VIBRATE);
-        builder.setPriority(Notification.PRIORITY_DEFAULT);
-        // Creates an explicit intent for an Activity in your app
-        //自定义打开的界面
-        //TODO 这个打开的页面需要确定
-        Intent resultIntent = new Intent(context, BatteryPoweredContactSensorInfoActivity.class);
-        resultIntent.putExtra(DEVICE_ID_KEY, mCurrentBatteryPoweredContactSensor.getId());
-        resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
-                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(contentIntent);
-
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        MyLog.i(TAG, "id:" + id);
-        //TODO 这个显示多个通知条目前还有问题，单个设备的时候，下面代码可以用，多个代码的时候，这个代码可能不太对
-        if (ifOpen) {
-            notificationManager.cancelAll();
-        }
-        notificationManager.notify(mCurrentBatteryPoweredContactSensor.getId(), id, builder.build());
-    }
-</pre>
-
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/year/12/28/Android/Android%E9%80%9A%E7%9F%A5%E6%A0%8F/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -546,7 +495,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/12/28/Android/Android%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -565,7 +514,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">Android基础</a></h1>
+                <a class="post-title-link" href="/year/12/28/Android/Android%E5%9F%BA%E7%A1%80/" itemprop="url">Android基础</a></h1>
         
 
         <div class="post-meta">
@@ -596,9 +545,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/12/28/Android/Android%E5%9F%BA%E7%A1%80/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/12/28/Android/Android基础/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -659,49 +608,15 @@
 
       
         
-          
-            <h3 id="1、Button的Text英文字体都是大写"><a href="#1、Button的Text英文字体都是大写" class="headerlink" title="1、Button的Text英文字体都是大写"></a>1、Button的Text英文字体都是大写</h3><p>android:textAllCaps=”false”<br><br>全为大写字母这个属性改为false</p>
-<h3 id="2、Button字体的间距和边框间距较大的时候"><a href="#2、Button字体的间距和边框间距较大的时候" class="headerlink" title="2、Button字体的间距和边框间距较大的时候"></a>2、Button字体的间距和边框间距较大的时候</h3><p>android:layout_height=”wrap_content”<br><br>android:layout_height=”@dimen/height_45”<br><br>高度不要设置成wrap_content而是设置成具体的值</p>
-<h3 id="3、Android完美检测键盘弹出-收起"><a href="#3、Android完美检测键盘弹出-收起" class="headerlink" title="3、Android完美检测键盘弹出/收起"></a>3、Android完美检测键盘弹出/收起</h3><pre>
-
-private void setListenerToRootView() {  
-    final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);  
-    rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {  
-        @Override  
-        public void onGlobalLayout() {  
-            LogUtils.d(TAG, "[onGlobalLayout] .. in ..");  
-            boolean mKeyboardUp = isKeyboardShown(rootView);  
-            if (mKeyboardUp) {  
-                LogUtils.d(TAG, "键盘弹出..");  
-            } else {  
-                LogUtils.d(TAG, "键盘收起..");  
-            }  
-        }  
-    });  
-}  
-
-private boolean isKeyboardShown(View rootView) {  
-    final int softKeyboardHeight = 100;  
-    Rect r = new Rect();  
-    rootView.getWindowVisibleDisplayFrame(r);  
-    DisplayMetrics dm = rootView.getResources().getDisplayMetrics();  
-    int heightDiff = rootView.getBottom() - r.bottom;  
-    return heightDiff > softKeyboardHeight * dm.density;  
-}  
-
-
-</pre>
-
-<h3 id="4、ListView点击条目去掉水波纹效果"><a href="#4、ListView点击条目去掉水波纹效果" class="headerlink" title="4、ListView点击条目去掉水波纹效果"></a>4、ListView点击条目去掉水波纹效果</h3><pre><code>&lt;ListView
-       android:listSelector=&quot;@android:color/transparent&quot;
-       android:id=&quot;@+id/schedule_list&quot;
-       android:layout_below=&quot;@id/diverd_line&quot;
-       android:layout_width=&quot;match_parent&quot;
-       android:layout_height=&quot;match_parent&quot;&gt;    </code></pre><h3 id="5、textView-color设置"><a href="#5、textView-color设置" class="headerlink" title="5、textView color设置"></a>5、textView color设置</h3><pre>mMinuteTip.setTextColor(Color.parseColor("#6495ED"));</pre>
-
-<h3 id="6、RadioGroup"><a href="#6、RadioGroup" class="headerlink" title="6、RadioGroup"></a>6、RadioGroup</h3><p>它有一个clearCheck方法可以把所有选中的RadioButton都取消选中，不用手动对每一个RadioButton进行取消设置，而且手动取消设置还有错误</p>
-
-          
+          <h3 id="1、Button的Text英文字体都是大写"><a href="#1、Button的Text英文字体都是大写" class="headerlink" title="1、Button的Text英文字体都是大写"></a>1、Button的Text英文字体都是大写</h3><p>android:textAllCaps=”false”<br><br>全为大写字母这个属性改为false</p>
+<h3 id="2、Button字体的间距和边框间距较大的时候"><a href="#2、Button字体的间距和边框间距较大的时候" class="headerlink" title="2、Button字体的间距和边框间距较大的时候"></a>2、Button字体的间距和边框间距较大的时候</h3><p>android:layout_height=”wrap_content”<br><br>android:layout_height=”@dimen/height_45”<br><br>高度不要设置成wrap_content而是设置成具体的值
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/year/12/28/Android/Android%E5%9F%BA%E7%A1%80/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -748,7 +663,7 @@ private boolean isKeyboardShown(View rootView) {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/12/28/Android/AndroidStudio%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -767,7 +682,7 @@ private boolean isKeyboardShown(View rootView) {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">AndroidStudio断点调试</a></h1>
+                <a class="post-title-link" href="/year/12/28/Android/AndroidStudio%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/" itemprop="url">AndroidStudio断点调试</a></h1>
         
 
         <div class="post-meta">
@@ -798,9 +713,9 @@ private boolean isKeyboardShown(View rootView) {
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/12/28/Android/AndroidStudio%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/12/28/Android/AndroidStudio断点调试/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -911,7 +826,7 @@ private boolean isKeyboardShown(View rootView) {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/11/23/Android/EditText/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -930,7 +845,7 @@ private boolean isKeyboardShown(View rootView) {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">EditText</a></h1>
+                <a class="post-title-link" href="/year/11/23/Android/EditText/" itemprop="url">EditText</a></h1>
         
 
         <div class="post-meta">
@@ -961,9 +876,9 @@ private boolean isKeyboardShown(View rootView) {
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/11/23/Android/EditText/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/11/23/Android/EditText/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1133,7 +1048,7 @@ private boolean isKeyboardShown(View rootView) {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/11/23/Java/java%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -1152,7 +1067,7 @@ private boolean isKeyboardShown(View rootView) {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">java基础</a></h1>
+                <a class="post-title-link" href="/year/11/23/Java/java%E5%9F%BA%E7%A1%80/" itemprop="url">java基础</a></h1>
         
 
         <div class="post-meta">
@@ -1183,9 +1098,9 @@ private boolean isKeyboardShown(View rootView) {
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/11/23/Java/java%E5%9F%BA%E7%A1%80/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/11/23/Java/java基础/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1311,7 +1226,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/11/23/%E7%94%9F%E6%B4%BB/%E7%94%9F%E6%B4%BB-%E8%BD%AF%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -1330,7 +1245,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">生活_软件</a></h1>
+                <a class="post-title-link" href="/year/11/23/%E7%94%9F%E6%B4%BB/%E7%94%9F%E6%B4%BB-%E8%BD%AF%E4%BB%B6/" itemprop="url">生活_软件</a></h1>
         
 
         <div class="post-meta">
@@ -1361,9 +1276,9 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/11/23/%E7%94%9F%E6%B4%BB/%E7%94%9F%E6%B4%BB-%E8%BD%AF%E4%BB%B6/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/11/23/生活/生活-软件/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1474,7 +1389,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/11/23/Android/AndroidStudio%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -1493,7 +1408,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">AndroidStudio环境相关</a></h1>
+                <a class="post-title-link" href="/year/11/23/Android/AndroidStudio%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" itemprop="url">AndroidStudio环境相关</a></h1>
         
 
         <div class="post-meta">
@@ -1524,9 +1439,9 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/11/23/Android/AndroidStudio%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/11/23/Android/AndroidStudio环境相关/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1649,7 +1564,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/05/27/Android/AndroidTrack%E8%AE%A4%E8%AF%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -1668,7 +1583,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">AndroidTrack认识</a></h1>
+                <a class="post-title-link" href="/year/05/27/Android/AndroidTrack%E8%AE%A4%E8%AF%86/" itemprop="url">AndroidTrack认识</a></h1>
         
 
         <div class="post-meta">
@@ -1699,9 +1614,9 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/05/27/Android/AndroidTrack%E8%AE%A4%E8%AF%86/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/05/27/Android/AndroidTrack认识/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1768,7 +1683,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
 <p>嗯，用英文搜索有时候能得到不同的答案</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/category/undefined/#more" rel="contents">
+            <a class="btn" href="/year/05/27/Android/AndroidTrack%E8%AE%A4%E8%AF%86/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1819,7 +1734,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/05/26/Java/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -1838,7 +1753,7 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">Java常用工具类</a></h1>
+                <a class="post-title-link" href="/year/05/26/Java/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/" itemprop="url">Java常用工具类</a></h1>
         
 
         <div class="post-meta">
@@ -1869,9 +1784,9 @@ public static void arraycopy(Object src, int srcPos, Object dest, int destPos, i
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/05/26/Java/Java%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/05/26/Java/Java常用工具类/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2001,7 +1916,7 @@ public static String[] bytesToHexStrings(byte[] src) {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/category/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/year/05/23/%E5%85%B6%E4%BB%96/%E4%BD%BF%E7%94%A8Hexo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="草根码农">
@@ -2020,7 +1935,7 @@ public static String[] bytesToHexStrings(byte[] src) {
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/category/undefined/" itemprop="url">使用Hexo+github搭建个人博客教程</a></h1>
+                <a class="post-title-link" href="/year/05/23/%E5%85%B6%E4%BB%96/%E4%BD%BF%E7%94%A8Hexo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" itemprop="url">使用Hexo+github搭建个人博客教程</a></h1>
         
 
         <div class="post-meta">
@@ -2051,9 +1966,9 @@ public static String[] bytesToHexStrings(byte[] src) {
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/category/undefined/#comments" itemprop="discussionUrl">
+                <a href="/year/05/23/%E5%85%B6%E4%BB%96/%E4%BD%BF%E7%94%A8Hexo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="category/undefined/" itemprop="commentCount"></span>
+                        data-disqus-identifier="year/05/23/其他/使用Hexo-github搭建个人博客教程/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2075,7 +1990,7 @@ public static String[] bytesToHexStrings(byte[] src) {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  734
+                  742
                 </span>
               
 
@@ -2124,16 +2039,10 @@ hexo version  #查看Hexo的版本</code></pre><h4 id="1-缩写："><a href="#1-
 hexo g == hexo generate
 hexo s == hexo server
 hexo d == hexo deploy</code></pre><h4 id="2-组合命令"><a href="#2-组合命令" class="headerlink" title="2.组合命令"></a>2.组合命令</h4><pre><code>hexo s -g #生成并本地预览
-hexo d -g #生成并上传</code></pre><h4 id="3-创建一篇新的博客步骤"><a href="#3-创建一篇新的博客步骤" class="headerlink" title="3.创建一篇新的博客步骤"></a>3.创建一篇新的博客步骤</h4><pre><code>1、进入到FirstHexo文件根目录
-2、右键git bash here（windows下操作）
-3、使用命令 hexo new 文章名
-4、hexo generate生成静态页面至public目录
-5、hexo server 在本地查看是否生成
-6、hexo d 将文章发布到github上面</code></pre><p>注意：一些非md文件可以把他们放到source文件夹下，这里的所有文件都会原样复制（除了md文件）到public目录的</p>
-<h4 id="4-阅读全文功能"><a href="#4-阅读全文功能" class="headerlink" title="4.阅读全文功能"></a>4.阅读全文功能</h4><p>在编辑文章时，适当位置添加
+hexo d -g #生成并上传</code></pre><h4 id="3-创建一篇新的博客步骤"><a href="#3-创建一篇新的博客步骤" class="headerlink" title="3.创建一篇新的博客步骤"></a>3.创建一篇新的博客步骤</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/category/undefined/#more" rel="contents">
+            <a class="btn" href="/year/05/23/%E5%85%B6%E4%BB%96/%E4%BD%BF%E7%94%A8Hexo-github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2245,7 +2154,7 @@ hexo d -g #生成并上传</code></pre><h4 id="3-创建一篇新的博客步骤"
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/tags.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -2488,6 +2397,28 @@ hexo d -g #生成并上传</code></pre><h4 id="3-创建一篇新的博客步骤"
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '2UYWCqtB0Dg7090xS9WzgOxj-gzGzoHsz',
+        appKey: 'EaTCrlTbleXVRFbRkmYFF2ty',
+        placeholder: '欢迎评论沟通',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

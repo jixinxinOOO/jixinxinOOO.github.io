@@ -298,7 +298,7 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/category/undefined/" itemprop="url">
+            <a class="post-title-link" href="/year/06/06/Android%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86%E5%88%86%E4%BA%AB/" itemprop="url">
               
                 <span itemprop="name">Android资源整理分享</span>
               
@@ -396,7 +396,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/tags.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -639,6 +639,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '2UYWCqtB0Dg7090xS9WzgOxj-gzGzoHsz',
+        appKey: 'EaTCrlTbleXVRFbRkmYFF2ty',
+        placeholder: '欢迎评论沟通',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
