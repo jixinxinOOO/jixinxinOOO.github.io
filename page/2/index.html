@@ -1048,13 +1048,13 @@
 
       
         
-          
-            <h1 id="EditText基本使用"><a href="#EditText基本使用" class="headerlink" title="EditText基本使用"></a>EditText基本使用</h1><ul>
+          <h1 id="EditText基本使用"><a href="#EditText基本使用" class="headerlink" title="EditText基本使用"></a>EditText基本使用</h1><ul>
 <li><p>限制字数一行显示</p>
   <pre>
   android:singleLine="true"
   android:maxLength="8"
-  </pre></li>
+  </pre>
+</li>
 <li><p>点击屏幕其他地方让EditText失去焦点</p>
   <pre>
     //给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上
@@ -1067,50 +1067,16 @@
               return false;
           }
       });
-  </pre></li>
-<li><p>光标移动到最后</p>
-  <pre>
-  et_name.setSelection(et_name.getText().toString().length());
-  </pre></li>
-<li><p>获取焦点</p>
-  <pre>
-  // 如果对edittext组件设置了editText.setFocusable(false);需要重新获取焦点则必须执行：
-  editText.setFocusable(ture);
-  editText.setFocusableInTouchMode(true);
-  editText.requestFocus();
-   // 注意：这种情况下，当重新点击文本框，是无法打开软键盘，必须点击第二次才能打开。 
-  如果改为：
-  editText.clearFocus(); 失去焦点
-  editText.requestFocus();获取焦点
-  </pre></li>
-<li><p>EditText增加右边图片点击事件</p>
-  <pre>
-   et.setOnTouchListener(new OnTouchListener() {
-
-  @Override
-  public boolean onTouch(View v, MotionEvent event) {
-      // et.getCompoundDrawables()得到一个长度为4的数组，分别表示左右上下四张图片
-      Drawable drawable = et.getCompoundDrawables()[2];
-      //如果右边没有图片，不再处理
-      if (drawable == null)
-          return false;
-      //如果不是按下事件，不再处理
-      if (event.getAction() != MotionEvent.ACTION_UP)
-          return false;
-      if (event.getX() > et.getWidth()
-              - et.getPaddingRight()
-              - drawable.getIntrinsicWidth()){
-          et.setText("");
-      }
-          return false;
-  }
-});
   </pre>
-
 </li>
-</ul>
-
-          
+<li><p>光标移动到最后</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/3807556718/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2032,7 +1998,7 @@ public static String[] bytesToHexStrings(byte[] src) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2065,7 +2031,7 @@ public static String[] bytesToHexStrings(byte[] src) {
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud">
     <canvas width="220" height="250" id="resCanvas" style="width=100%">
-        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE1/" rel="tag">标签1</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90/" rel="tag">资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E8%AE%AF/" rel="tag">资讯</a><span class="tag-list-count">1</span></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE1/" rel="tag">标签1</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9/" rel="tag">第三方</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90/" rel="tag">资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E8%AE%AF/" rel="tag">资讯</a><span class="tag-list-count">1</span></li></ul>
     </canvas>
     </div>
 </div>

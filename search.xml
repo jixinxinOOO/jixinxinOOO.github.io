@@ -58,7 +58,7 @@
       <link href="/1176012382/"/>
       <url>/1176012382/</url>
       
-        <content type="html"><![CDATA[<hr><h3 id="1、Scroll-Reveser"><a href="#1、Scroll-Reveser" class="headerlink" title="1、Scroll Reveser"></a>1、Scroll Reveser</h3><p>软件说明：这个软件可以设置你的普通鼠标的滚轮方向，我们都知道，在mac的自带的设置滚动方向设置成自然之后，鼠标滚动的方向很不习惯，但是取消自然方向之后，滚轮的方向又和之前在windows上不一样了，这个软件的作用就是触控板的方向和鼠标滚轮的方向分开来了</p><p>官网下载地址：<a href="https://pilotmoon.com/scrollreverser/" target="_blank" rel="noopener">https://pilotmoon.com/scrollreverser/</a></p><p><img src="https://note.youdao.com/yws/public/resource/e4a7f7ba6382871eaa692f2a88d665ec/xmlnote/CB826DF69B0B4BB39FC7885DE952E351/52" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="1、Scroll-Reveser"><a href="#1、Scroll-Reveser" class="headerlink" title="1、Scroll Reveser"></a>1、Scroll Reveser</h3><p>软件说明：这个软件可以设置你的普通鼠标的滚轮方向，我们都知道，在mac的自带的设置滚动方向设置成自然之后，鼠标滚动的方向很不习惯，但是取消自然方向之后，滚轮的方向又和之前在windows上不一样了，这个软件的作用就是触控板的方向和鼠标滚轮的方向分开来了</p><p>官网下载地址：<a href="https://pilotmoon.com/scrollreverser/" target="_blank" rel="noopener">https://pilotmoon.com/scrollreverser/</a></p><p><img src="https://note.youdao.com/yws/public/resource/e4a7f7ba6382871eaa692f2a88d665ec/xmlnote/CB826DF69B0B4BB39FC7885DE952E351/52" alt=""></p>]]></content>
       
       
       
@@ -74,6 +74,12 @@
         <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"/><h4 id="整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的"><a href="#整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的" class="headerlink" title="整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的"></a>整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的</h4><p>EventBus是一种发布、订阅的事件总线框架，基于观察者模式，将消息的发送者、处理者分开，简化了组件之间的通信，提高了通信效率</p><p><em>该导图的完成，有赖于<a href="https://www.jianshu.com/p/d9516884dbd4" target="_blank" rel="noopener">这位网友</a>的分析文章</em></p><p><img src="https://note.youdao.com/yws/public/resource/b3288c1dee028e75dd6355491528ec7f/xmlnote/FA257359384F4BE7A8C56004EDFFD016/85" alt="eventbus原理图"></p><p><a href="http://note.youdao.com/noteshare?id=58e5813df58e37ba34f4111595e19324" target="_blank" rel="noopener">附件链接</a></p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 第三方 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -226,7 +232,7 @@
       <link href="/3807556718/"/>
       <url>/3807556718/</url>
       
-        <content type="html"><![CDATA[<h1 id="EditText基本使用"><a href="#EditText基本使用" class="headerlink" title="EditText基本使用"></a>EditText基本使用</h1><ul><li><p>限制字数一行显示</p>  <pre>  android:singleLine="true"  android:maxLength="8"  </pre></li><li><p>点击屏幕其他地方让EditText失去焦点</p>  <pre>    //给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上    ll_sprinkler_schedule_details.setOnTouchListener(new View.OnTouchListener() {          @Override          public boolean onTouch(View view, MotionEvent motionEvent) {              ll_sprinkler_schedule_details.setFocusable(true);              ll_sprinkler_schedule_details.setFocusableInTouchMode(true);              ll_sprinkler_schedule_details.requestFocus();              return false;          }      });  </pre></li><li><p>光标移动到最后</p>  <pre>  et_name.setSelection(et_name.getText().toString().length());  </pre></li><li><p>获取焦点</p>  <pre>  // 如果对edittext组件设置了editText.setFocusable(false);需要重新获取焦点则必须执行：  editText.setFocusable(ture);  editText.setFocusableInTouchMode(true);  editText.requestFocus();   // 注意：这种情况下，当重新点击文本框，是无法打开软键盘，必须点击第二次才能打开。   如果改为：  editText.clearFocus(); 失去焦点  editText.requestFocus();获取焦点  </pre></li><li><p>EditText增加右边图片点击事件</p>  <pre>   et.setOnTouchListener(new OnTouchListener() {  @Override  public boolean onTouch(View v, MotionEvent event) {      // et.getCompoundDrawables()得到一个长度为4的数组，分别表示左右上下四张图片      Drawable drawable = et.getCompoundDrawables()[2];      //如果右边没有图片，不再处理      if (drawable == null)          return false;      //如果不是按下事件，不再处理      if (event.getAction() != MotionEvent.ACTION_UP)          return false;      if (event.getX() > et.getWidth()              - et.getPaddingRight()              - drawable.getIntrinsicWidth()){          et.setText("");      }          return false;  }});  </pre></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="EditText基本使用"><a href="#EditText基本使用" class="headerlink" title="EditText基本使用"></a>EditText基本使用</h1><ul><li><p>限制字数一行显示</p>  <pre>  android:singleLine="true"  android:maxLength="8"  </pre></li><li><p>点击屏幕其他地方让EditText失去焦点</p>  <pre>    //给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上    ll_sprinkler_schedule_details.setOnTouchListener(new View.OnTouchListener() {          @Override          public boolean onTouch(View view, MotionEvent motionEvent) {              ll_sprinkler_schedule_details.setFocusable(true);              ll_sprinkler_schedule_details.setFocusableInTouchMode(true);              ll_sprinkler_schedule_details.requestFocus();              return false;          }      });  </pre></li><li><p>光标移动到最后</p>  <a id="more"></a>  <pre>  et_name.setSelection(et_name.getText().toString().length());  </pre></li><li><p>获取焦点</p>  <pre>  // 如果对edittext组件设置了editText.setFocusable(false);需要重新获取焦点则必须执行：  editText.setFocusable(ture);  editText.setFocusableInTouchMode(true);  editText.requestFocus();   // 注意：这种情况下，当重新点击文本框，是无法打开软键盘，必须点击第二次才能打开。   如果改为：  editText.clearFocus(); 失去焦点  editText.requestFocus();获取焦点  </pre></li><li><p>EditText增加右边图片点击事件</p>  <pre>   et.setOnTouchListener(new OnTouchListener() {  @Override  public boolean onTouch(View v, MotionEvent event) {      // et.getCompoundDrawables()得到一个长度为4的数组，分别表示左右上下四张图片      Drawable drawable = et.getCompoundDrawables()[2];      //如果右边没有图片，不再处理      if (drawable == null)          return false;      //如果不是按下事件，不再处理      if (event.getAction() != MotionEvent.ACTION_UP)          return false;      if (event.getX() > et.getWidth()              - et.getPaddingRight()              - drawable.getIntrinsicWidth()){          et.setText("");      }          return false;  }});  </pre></li></ul>]]></content>
       
       
       

@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="EditText基本使用 限制字数一行显示      android:singleLine&#x3D;&quot;true&quot;   android:maxLength&#x3D;&quot;8&quot;    点击屏幕其他地方让EditText失去焦点        &#x2F;&#x2F;给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上     ll_sprinkler_schedule_details.setOnTouchListener(new Vie">
+<meta name="description" content="EditText基本使用 限制字数一行显示      android:singleLine&#x3D;&quot;true&quot;   android:maxLength&#x3D;&quot;8&quot;     点击屏幕其他地方让EditText失去焦点        &#x2F;&#x2F;给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上     ll_sprinkler_schedule_details.setOnTouchListener(new Vi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EditText">
 <meta property="og:url" content="http://yoursite.com/3807556718/index.html">
 <meta property="og:site_name" content="撒哈拉少爷的博客">
-<meta property="og:description" content="EditText基本使用 限制字数一行显示      android:singleLine&#x3D;&quot;true&quot;   android:maxLength&#x3D;&quot;8&quot;    点击屏幕其他地方让EditText失去焦点        &#x2F;&#x2F;给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上     ll_sprinkler_schedule_details.setOnTouchListener(new Vie">
+<meta property="og:description" content="EditText基本使用 限制字数一行显示      android:singleLine&#x3D;&quot;true&quot;   android:maxLength&#x3D;&quot;8&quot;     点击屏幕其他地方让EditText失去焦点        &#x2F;&#x2F;给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上     ll_sprinkler_schedule_details.setOnTouchListener(new Vi">
 <meta property="article:published_time" content="2017-11-23T07:53:33.000Z">
-<meta property="article:modified_time" content="2020-06-07T02:58:57.865Z">
+<meta property="article:modified_time" content="2020-06-07T15:42:12.074Z">
 <meta property="article:author" content="起风了">
 <meta name="twitter:card" content="summary">
 
@@ -404,7 +404,8 @@
   <pre>
   android:singleLine="true"
   android:maxLength="8"
-  </pre></li>
+  </pre>
+</li>
 <li><p>点击屏幕其他地方让EditText失去焦点</p>
   <pre>
     //给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上
@@ -417,11 +418,15 @@
               return false;
           }
       });
-  </pre></li>
+  </pre>
+</li>
 <li><p>光标移动到最后</p>
+  <a id="more"></a>
+
   <pre>
   et_name.setSelection(et_name.getText().toString().length());
-  </pre></li>
+  </pre>
+</li>
 <li><p>获取焦点</p>
   <pre>
   // 如果对edittext组件设置了editText.setFocusable(false);需要重新获取焦点则必须执行：
@@ -432,7 +437,8 @@
   如果改为：
   editText.clearFocus(); 失去焦点
   editText.requestFocus();获取焦点
-  </pre></li>
+  </pre>
+</li>
 <li><p>EditText增加右边图片点击事件</p>
   <pre>
    et.setOnTouchListener(new OnTouchListener() {
@@ -632,7 +638,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -681,7 +687,7 @@
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud">
     <canvas width="220" height="250" id="resCanvas" style="width=100%">
-        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE1/" rel="tag">标签1</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90/" rel="tag">资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E8%AE%AF/" rel="tag">资讯</a><span class="tag-list-count">1</span></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE1/" rel="tag">标签1</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9/" rel="tag">第三方</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E6%BA%90/" rel="tag">资源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%84%E8%AE%AF/" rel="tag">资讯</a><span class="tag-list-count">1</span></li></ul>
     </canvas>
     </div>
 </div>
