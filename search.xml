@@ -67,6 +67,19 @@
     
     
     <entry>
+      <title>EventBus原理</title>
+      <link href="/4267614495/"/>
+      <url>/4267614495/</url>
+      
+        <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"/><h4 id="整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的"><a href="#整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的" class="headerlink" title="整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的"></a>整理了一份EventBus原理的思维导图，个人觉得这个导图还是有助于理清逻辑的</h4><p>EventBus是一种发布、订阅的事件总线框架，基于观察者模式，将消息的发送者、处理者分开，简化了组件之间的通信，提高了通信效率</p><p><em>该导图的完成，有赖于<a href="https://www.jianshu.com/p/d9516884dbd4" target="_blank" rel="noopener">这位网友</a>的分析文章</em></p><p><img src="https://note.youdao.com/yws/public/resource/b3288c1dee028e75dd6355491528ec7f/xmlnote/FA257359384F4BE7A8C56004EDFFD016/85" alt="eventbus原理图"></p><p><a href="http://note.youdao.com/noteshare?id=58e5813df58e37ba34f4111595e19324" target="_blank" rel="noopener">附件链接</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android定位</title>
       <link href="/3100664228/"/>
       <url>/3100664228/</url>
