@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="键盘把布局顶起来的解决办法方法一：在你的activity中的oncreate中setContentView之前写上这个代码getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN); http:&#x2F;&#x2F;blog.csdn.net&#x2F;szming_blog&#x2F;article&#x2F;details&#x2F;45442233 F">
+<meta name="description" content="AndroidTrack认识终于找到一个开源的可以正确播放我录的wav文件了，真的是太不容易了 https:&#x2F;&#x2F;github.com&#x2F;zhangliangming&#x2F;Android_AudioPlayer&#x2F;tree&#x2F;master&#x2F;libs 还是github帮了我大忙感谢开源拯救了我，开源我的大爱 嗯，用英文搜索有时候能得到不同的答案 wav如何在播放前获取播放时长http:&#x2F;&#x2F;blog.csdn.n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android工作中总结">
+<meta property="og:title" content="Android工作中的总结">
 <meta property="og:url" content="http://yoursite.com/58505651/index.html">
 <meta property="og:site_name" content="撒哈拉少爷的博客">
-<meta property="og:description" content="键盘把布局顶起来的解决办法方法一：在你的activity中的oncreate中setContentView之前写上这个代码getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN); http:&#x2F;&#x2F;blog.csdn.net&#x2F;szming_blog&#x2F;article&#x2F;details&#x2F;45442233 F">
+<meta property="og:description" content="AndroidTrack认识终于找到一个开源的可以正确播放我录的wav文件了，真的是太不容易了 https:&#x2F;&#x2F;github.com&#x2F;zhangliangming&#x2F;Android_AudioPlayer&#x2F;tree&#x2F;master&#x2F;libs 还是github帮了我大忙感谢开源拯救了我，开源我的大爱 嗯，用英文搜索有时候能得到不同的答案 wav如何在播放前获取播放时长http:&#x2F;&#x2F;blog.csdn.n">
+<meta property="og:image" content="https://i.loli.net/2017/12/28/5a44bb4a7fc96.png">
 <meta property="article:published_time" content="2018-01-23T06:54:29.000Z">
-<meta property="article:modified_time" content="2020-06-07T02:58:57.863Z">
+<meta property="article:modified_time" content="2020-06-22T07:18:40.951Z">
 <meta property="article:author" content="起风了">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2017/12/28/5a44bb4a7fc96.png">
 
 
 
@@ -124,7 +126,7 @@
 
 
 
-  <title>Android工作中总结 | 撒哈拉少爷的博客</title>
+  <title>Android工作中的总结 | 撒哈拉少爷的博客</title>
   
 
 
@@ -312,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Android工作中总结</h1>
+          <h1 class="post-title" itemprop="name headline">Android工作中的总结</h1>
         
 
         <div class="post-meta">
@@ -361,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  80
+                  872
                 </span>
               
 
@@ -377,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -399,10 +401,37 @@
       
 
       
-        <h2 id="键盘把布局顶起来的解决办法"><a href="#键盘把布局顶起来的解决办法" class="headerlink" title="键盘把布局顶起来的解决办法"></a>键盘把布局顶起来的解决办法</h2><p>方法一：在你的activity中的oncreate中setContentView之前写上这个代码getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);</p>
+        <h3 id="AndroidTrack认识"><a href="#AndroidTrack认识" class="headerlink" title="AndroidTrack认识"></a>AndroidTrack认识</h3><p>终于找到一个开源的可以正确播放我录的wav文件了，真的是太不容易了</p>
+<p><a href="https://github.com/zhangliangming/Android_AudioPlayer/tree/master/libs" target="_blank" rel="noopener">https://github.com/zhangliangming/Android_AudioPlayer/tree/master/libs</a></p>
+<p>还是github帮了我大忙<br>感谢开源拯救了我，开源我的大爱</p>
+<p>嗯，用英文搜索有时候能得到不同的答案</p>
+<h3 id="wav如何在播放前获取播放时长"><a href="#wav如何在播放前获取播放时长" class="headerlink" title="wav如何在播放前获取播放时长"></a>wav如何在播放前获取播放时长</h3><p><a href="http://blog.csdn.net/91program/article/details/2539636" target="_blank" rel="noopener">http://blog.csdn.net/91program/article/details/2539636</a></p>
+<p>直接读取wav文件头信息，从文件起始地址偏移28个字节长度为4个字节保存的是每秒钟播放的字节数，从文件起始地址偏移40个字节长度为4个字节保存的是声音数据的总的字节数，相除就是播放时间</p>
+<p>采样率：就是对声音信息1秒钟采样多少次，以记录成数字信息。如CD音频是44.1KHz采样率，它对声音以每秒44100次的频率来记录信息。原则上采样率越高，声音的质量越好</p>
+<a id="more"></a>
+
+<hr>
+<h3 id="键盘把布局顶起来的解决办法"><a href="#键盘把布局顶起来的解决办法" class="headerlink" title="键盘把布局顶起来的解决办法"></a>键盘把布局顶起来的解决办法</h3><p>方法一：在你的activity中的oncreate中setContentView之前写上这个代码getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);</p>
 <p><a href="http://blog.csdn.net/szming_blog/article/details/45442233" target="_blank" rel="noopener">http://blog.csdn.net/szming_blog/article/details/45442233</a></p>
-<h2 id="Fragment-tab生命周期不调用的解决"><a href="#Fragment-tab生命周期不调用的解决" class="headerlink" title="Fragment+tab生命周期不调用的解决"></a>Fragment+tab生命周期不调用的解决</h2><p><a href="http://blog.csdn.net/csdn_aiyang/article/details/78054709?locationNum=10&fps=1" target="_blank" rel="noopener">http://blog.csdn.net/csdn_aiyang/article/details/78054709?locationNum=10&amp;fps=1</a></p>
-<h2 id="apk混淆"><a href="#apk混淆" class="headerlink" title="apk混淆"></a>apk混淆</h2><p><a href="https://www.jianshu.com/p/d7b7e903cfa7" target="_blank" rel="noopener">https://www.jianshu.com/p/d7b7e903cfa7</a><br/><br><a href="https://www.jianshu.com/p/7436a1a32891" target="_blank" rel="noopener">https://www.jianshu.com/p/7436a1a32891</a></p>
+<h3 id="Fragment-tab生命周期不调用的解决"><a href="#Fragment-tab生命周期不调用的解决" class="headerlink" title="Fragment+tab生命周期不调用的解决"></a>Fragment+tab生命周期不调用的解决</h3><p><a href="http://blog.csdn.net/csdn_aiyang/article/details/78054709?locationNum=10&fps=1" target="_blank" rel="noopener">http://blog.csdn.net/csdn_aiyang/article/details/78054709?locationNum=10&amp;fps=1</a></p>
+<h3 id="apk混淆"><a href="#apk混淆" class="headerlink" title="apk混淆"></a>apk混淆</h3><p><a href="https://www.jianshu.com/p/d7b7e903cfa7" target="_blank" rel="noopener">https://www.jianshu.com/p/d7b7e903cfa7</a><br/><br><a href="https://www.jianshu.com/p/7436a1a32891" target="_blank" rel="noopener">https://www.jianshu.com/p/7436a1a32891</a></p>
+<hr>
+<h3 id="Android定位"><a href="#Android定位" class="headerlink" title="Android定位"></a>Android定位</h3><p>Network:定位快，准确度低，受环境影响小。 GPS：定位慢，准确度高，受环境影响大。 <br><br><a href="http://blog.csdn.net/itleaks/article/details/31511105" target="_blank" rel="noopener">http://blog.csdn.net/itleaks/article/details/31511105</a></p>
+<p><a href="http://blog.csdn.net/luosiye312/article/details/50562309" target="_blank" rel="noopener">三种定位方式</a></p>
+<hr>
+<h3 id="点9图片制作"><a href="#点9图片制作" class="headerlink" title="点9图片制作"></a>点9图片制作</h3><p><img src="https://i.loli.net/2017/12/28/5a44bb4a7fc96.png" alt=""></p>
+<hr>
+<h3 id="Android通知栏"><a href="#Android通知栏" class="headerlink" title="Android通知栏"></a>Android通知栏</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通知栏</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> title</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> text</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showNotification2</span><span class="params">(Context context, <span class="keyword">int</span> id, String title, String text, <span class="keyword">boolean</span> ifOpen)</span> </span>&#123;</span><br><span class="line">        MyLog.i(TAG,<span class="string">"showNotification2()"</span>);</span><br><span class="line">        NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(context);</span><br><span class="line">        builder.setSmallIcon(R.drawable.ic_launcher);</span><br><span class="line">        builder.setContentTitle(title);</span><br><span class="line">        builder.setContentText(text);</span><br><span class="line">        builder.setAutoCancel(<span class="keyword">true</span>);</span><br><span class="line">        builder.setOnlyAlertOnce(<span class="keyword">true</span>);</span><br><span class="line">        builder.setTicker(<span class="string">"门磁防护通知"</span>);</span><br><span class="line">        <span class="comment">// 需要VIBRATE权限</span></span><br><span class="line">        builder.setDefaults(Notification.DEFAULT_VIBRATE);</span><br><span class="line">        builder.setPriority(Notification.PRIORITY_DEFAULT);</span><br><span class="line">        builder.setPriority(Notification.PRIORITY_DEFAULT);<span class="comment">// 设置该通知优先级</span></span><br><span class="line">        <span class="comment">// Creates an explicit intent for an Activity in your app</span></span><br><span class="line">        <span class="comment">//自定义打开的界面</span></span><br><span class="line">        Intent resultIntent = <span class="keyword">new</span> Intent(context, BatteryPoweredContactSensorInfoActivity<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"><span class="comment">//        resultIntent.putExtra(DEVICE_ID_KEY, mCurrentBatteryPoweredContactSensor.getId());</span></span><br><span class="line">        resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">        PendingIntent contentIntent = PendingIntent.getActivity(context, <span class="number">0</span>,</span><br><span class="line">                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line">        builder.setContentIntent(contentIntent);</span><br><span class="line">          NotificationManager notificationManager = (NotificationManager) context</span><br><span class="line">            .getSystemService(Context.NOTIFICATION_SERVICE);</span><br><span class="line">    notificationManager.notify(<span class="string">"1"</span>, id, builder.build());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">     <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通知栏</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> title</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> text</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showNotification</span><span class="params">(Context context, <span class="keyword">int</span> id, String title, String text, <span class="keyword">boolean</span> ifOpen)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//自定义通知栏布局</span></span><br><span class="line">        RemoteViews mRemoteViews = <span class="keyword">new</span> RemoteViews(getPackageName(), R.layout.view_custom_notification);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        String currentTime = DateTool.exchangeStringTime2(DateTool.getSpecifiedTime3(Calendar.getInstance()));</span><br><span class="line">        mRemoteViews.setTextViewText(R.id.tv_notification_time, currentTime);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    mRemoteViews.setTextViewText(R.id.tv_notification_info, text);</span><br><span class="line">    mRemoteViews.setTextViewText(R.id.tv_notification_app_name, title);</span><br><span class="line">    mRemoteViews.setTextColor(R.id.tv_notification_info, Color.BLACK);</span><br><span class="line">    NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(context);</span><br><span class="line">    builder.setContent(mRemoteViews)</span><br><span class="line">            .setWhen(System.currentTimeMillis())<span class="comment">// 通知产生的时间，会在通知信息里显示</span></span><br><span class="line">            .setPriority(Notification.PRIORITY_DEFAULT)<span class="comment">// 设置该通知优先级</span></span><br><span class="line">            .setOngoing(<span class="keyword">true</span>)</span><br><span class="line">            .setShowWhen(<span class="keyword">false</span>)</span><br><span class="line">            .setTicker(<span class="string">"有新的软件更新"</span>)</span><br><span class="line">            .setSmallIcon(R.drawable.ic_launcher);<span class="comment">//这个属性是自定义通知里面必须要传递的，否则通知不显示</span></span><br><span class="line">    builder.setAutoCancel(<span class="keyword">true</span>);</span><br><span class="line">    builder.setOnlyAlertOnce(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">// 需要VIBRATE权限</span></span><br><span class="line">    builder.setDefaults(Notification.DEFAULT_VIBRATE);</span><br><span class="line">    builder.setPriority(Notification.PRIORITY_DEFAULT);</span><br><span class="line">    <span class="comment">// Creates an explicit intent for an Activity in your app</span></span><br><span class="line">    <span class="comment">//自定义打开的界面</span></span><br><span class="line">    <span class="comment">//TODO 这个打开的页面需要确定</span></span><br><span class="line">    Intent resultIntent = <span class="keyword">new</span> Intent(context, BatteryPoweredContactSensorInfoActivity<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    resultIntent.putExtra(DEVICE_ID_KEY, mCurrentBatteryPoweredContactSensor.getId());</span><br><span class="line">    resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">    PendingIntent contentIntent = PendingIntent.getActivity(context, <span class="number">0</span>,</span><br><span class="line">            resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);</span><br><span class="line">    builder.setContentIntent(contentIntent);</span><br><span class="line"></span><br><span class="line">    NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);</span><br><span class="line">    MyLog.i(TAG, <span class="string">"id:"</span> + id);</span><br><span class="line">    <span class="comment">//TODO 这个显示多个通知条目前还有问题，单个设备的时候，下面代码可以用，多个代码的时候，这个代码可能不太对</span></span><br><span class="line">    <span class="keyword">if</span> (ifOpen) &#123;</span><br><span class="line">        notificationManager.cancelAll();</span><br><span class="line">    &#125;</span><br><span class="line">    notificationManager.notify(mCurrentBatteryPoweredContactSensor.getId(), id, builder.build());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="AndroidStudio断点调试"><a href="#AndroidStudio断点调试" class="headerlink" title="AndroidStudio断点调试"></a>AndroidStudio断点调试</h3><p>step over F8 执行下一行代码<br><br>Step Out F7 跳出方法或者下一个断点</p>
 
       
     </div>
@@ -456,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/20319150/" rel="next" title="Wifi使用">
-                <i class="fa fa-chevron-left"></i> Wifi使用
+              <a href="/2021401606/" rel="next" title="Git命令基本使用">
+                <i class="fa fa-chevron-left"></i> Git命令基本使用
               </a>
             
           </div>
@@ -466,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/3100664228/" rel="prev" title="Android定位">
-                Android定位 <i class="fa fa-chevron-right"></i>
+              <a href="/4267614495/" rel="prev" title="EventBus原理">
+                EventBus原理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,28 +583,19 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/tags.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -609,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#键盘把布局顶起来的解决办法"><span class="nav-number">1.</span> <span class="nav-text">键盘把布局顶起来的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment-tab生命周期不调用的解决"><span class="nav-number">2.</span> <span class="nav-text">Fragment+tab生命周期不调用的解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apk混淆"><span class="nav-number">3.</span> <span class="nav-text">apk混淆</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidTrack认识"><span class="nav-number">1.</span> <span class="nav-text">AndroidTrack认识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wav如何在播放前获取播放时长"><span class="nav-number">2.</span> <span class="nav-text">wav如何在播放前获取播放时长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘把布局顶起来的解决办法"><span class="nav-number">3.</span> <span class="nav-text">键盘把布局顶起来的解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-tab生命周期不调用的解决"><span class="nav-number">4.</span> <span class="nav-text">Fragment+tab生命周期不调用的解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apk混淆"><span class="nav-number">5.</span> <span class="nav-text">apk混淆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android定位"><span class="nav-number">6.</span> <span class="nav-text">Android定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点9图片制作"><span class="nav-number">7.</span> <span class="nav-text">点9图片制作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android通知栏"><span class="nav-number">8.</span> <span class="nav-text">Android通知栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidStudio断点调试"><span class="nav-number">9.</span> <span class="nav-text">AndroidStudio断点调试</span></a></li></ol></div>
             
 
           </div>

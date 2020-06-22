@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="撒哈拉少爷的博客">
 <meta property="og:description" content="1、什么是贝塞尔曲线贝塞尔曲线，又称贝兹曲线或贝济埃曲线，是应用于二维图形应用程序的数学曲线。一般的矢量图像软件通过它来精确画出曲线，贝塞尔曲线由线段与节点组成，节点是可拖动的支点，线段像可伸缩的皮筋，我们在绘图工具上看到的钢笔工具就是来做这种矢量曲线的(ps工具里面的钢笔工具)。主要结构：起始点、终止点（也成锚点）、控制点，通过调整控制点，贝塞尔的形状会发生变化有关贝塞尔曲线的知识：http:&#x2F;">
 <meta property="article:published_time" content="2017-05-23T06:09:20.000Z">
-<meta property="article:modified_time" content="2020-06-07T02:58:57.864Z">
+<meta property="article:modified_time" content="2020-06-22T07:13:11.004Z">
 <meta property="article:author" content="起风了">
 <meta name="twitter:card" content="summary">
 
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  548
+                  554
                 </span>
               
 
@@ -407,58 +407,9 @@
 </li>
 <li><p>二阶贝塞尔曲线</p>
 <p>  以下代码是最简单的二阶贝塞尔曲线使用</p>
-<pre> 
-  class BezierView extends View {
-  public BezierView(Context context) {
-      super(context);
-  }
-  protected void onDraw(Canvas canvas) {
-      /**
-       * 点的坐标集合
-       */
-      List<Float> points = new ArrayList<Float>();
-      // 添加第一个点(118.0, 294.0),
-      points.add((float) 118.0);// X轴
-      points.add((float) 294.0);// Y轴
-      // 添加第二个点
-      points.add((float) 206.0);
-      points.add((float) 294.0);
-      // 添加第三个点
-      points.add((float) 294.0);
-      points.add((float) 118.0);
-      // 添加第四个点
-      points.add((float) 382.0);
-      points.add((float) 206.0);
-
-      points.add((float) 470.0);
-      points.add((float) 118.0);
-
-      Paint mPaint=new Paint();
-      Path mPath = new Path();
-      mPaint.setColor(Color.RED); // 画笔颜色
-      mPaint.setStrokeWidth(5); // 画笔宽度
-      mPaint.setStyle(Paint.Style.STROKE);
-      mPath.reset();
-      // 起点
-      mPath.moveTo(points.get(0), points.get(1));
-      // 画路径， 参数依次为控制点坐标x,y,终点坐标x,y
-      mPath.quadTo(points.get(2), points.get(3),points.get(4), points.get(5));
-      // 画path
-      canvas.drawPath(mPath, mPaint);
-      // 画控制点,其实这个画出来不画出来无伤大雅
-      canvas.drawPoint(points.get(2), points.get(3), mPaint);
-      // 画线
-      canvas.drawLine(points.get(0), points.get(1), points.get(2), points.get(3), mPaint);
-      canvas.drawLine(points.get(4), points.get(5), points.get(2), points.get(3), mPaint);
-      invalidate();
-  }
-  } 
-</pre> 
-
 </li>
 </ul>
-<p>效果图如下：<br>    ！<a href="https://ooo.0o0.ooo/2017/05/17/591be4d88d587.png" target="_blank" rel="noopener">哈哈</a></p>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">BezierView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">BezierView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 点的坐标集合</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		List&lt;Float&gt; points = <span class="keyword">new</span> ArrayList&lt;Float&gt;();</span><br><span class="line">		<span class="comment">// 添加第一个点(118.0, 294.0),</span></span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">118.0</span>);<span class="comment">// X轴</span></span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">294.0</span>);<span class="comment">// Y轴</span></span><br><span class="line">		<span class="comment">// 添加第二个点</span></span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">206.0</span>);</span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">294.0</span>);</span><br><span class="line">		<span class="comment">// 添加第三个点</span></span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">294.0</span>);</span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">118.0</span>);</span><br><span class="line">		<span class="comment">// 添加第四个点</span></span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">382.0</span>);</span><br><span class="line">		points.add((<span class="keyword">float</span>) <span class="number">206.0</span>);	</span><br><span class="line">	points.add((<span class="keyword">float</span>) <span class="number">470.0</span>);</span><br><span class="line">	points.add((<span class="keyword">float</span>) <span class="number">118.0</span>);</span><br><span class="line">	 </span><br><span class="line">	Paint mPaint=<span class="keyword">new</span> Paint();</span><br><span class="line">	Path mPath = <span class="keyword">new</span> Path();</span><br><span class="line">	mPaint.setColor(Color.RED); <span class="comment">// 画笔颜色</span></span><br><span class="line">	mPaint.setStrokeWidth(<span class="number">5</span>); <span class="comment">// 画笔宽度</span></span><br><span class="line">	mPaint.setStyle(Paint.Style.STROKE);</span><br><span class="line">	mPath.reset();</span><br><span class="line">	<span class="comment">// 起点</span></span><br><span class="line">	mPath.moveTo(points.get(<span class="number">0</span>), points.get(<span class="number">1</span>));</span><br><span class="line">	<span class="comment">// 画路径， 参数依次为控制点坐标x,y,终点坐标x,y</span></span><br><span class="line">	mPath.quadTo(points.get(<span class="number">2</span>), points.get(<span class="number">3</span>),points.get(<span class="number">4</span>), points.get(<span class="number">5</span>));</span><br><span class="line">	<span class="comment">// 画path</span></span><br><span class="line">	canvas.drawPath(mPath, mPaint);</span><br><span class="line">	<span class="comment">// 画控制点,其实这个画出来不画出来无伤大雅</span></span><br><span class="line">	canvas.drawPoint(points.get(<span class="number">2</span>), points.get(<span class="number">3</span>), mPaint);</span><br><span class="line">	<span class="comment">// 画线</span></span><br><span class="line">	canvas.drawLine(points.get(<span class="number">0</span>), points.get(<span class="number">1</span>), points.get(<span class="number">2</span>), points.get(<span class="number">3</span>), mPaint);</span><br><span class="line">	canvas.drawLine(points.get(<span class="number">4</span>), points.get(<span class="number">5</span>), points.get(<span class="number">2</span>), points.get(<span class="number">3</span>), mPaint);</span><br><span class="line">	invalidate();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -609,28 +560,19 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/tags.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>

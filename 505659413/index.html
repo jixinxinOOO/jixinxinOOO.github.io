@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="撒哈拉少爷的博客">
 <meta property="og:description" content="1、Button的Text英文字体都是大写android:textAllCaps&#x3D;”false”全为大写字母这个属性改为false 2、Button字体的间距和边框间距较大的时候android:layout_height&#x3D;”wrap_content”android:layout_height&#x3D;”@dimen&#x2F;height_45”高度不要设置成wrap_content而是设置成具体的值">
 <meta property="article:published_time" content="2017-04-28T09:49:26.000Z">
-<meta property="article:modified_time" content="2020-06-22T06:34:50.925Z">
+<meta property="article:modified_time" content="2020-06-22T07:06:43.662Z">
 <meta property="article:author" content="起风了">
 <meta name="twitter:card" content="summary">
 
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  261
+                  795
                 </span>
               
 
@@ -377,7 +377,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -401,45 +401,69 @@
       
         <h3 id="1、Button的Text英文字体都是大写"><a href="#1、Button的Text英文字体都是大写" class="headerlink" title="1、Button的Text英文字体都是大写"></a>1、Button的Text英文字体都是大写</h3><p>android:textAllCaps=”false”<br><br>全为大写字母这个属性改为false</p>
 <h3 id="2、Button字体的间距和边框间距较大的时候"><a href="#2、Button字体的间距和边框间距较大的时候" class="headerlink" title="2、Button字体的间距和边框间距较大的时候"></a>2、Button字体的间距和边框间距较大的时候</h3><p>android:layout_height=”wrap_content”<br><br>android:layout_height=”@dimen/height_45”<br><br>高度不要设置成wrap_content而是设置成具体的值<a id="more"></a></p>
-<h3 id="3、Android完美检测键盘弹出-收起"><a href="#3、Android完美检测键盘弹出-收起" class="headerlink" title="3、Android完美检测键盘弹出/收起"></a>3、Android完美检测键盘弹出/收起</h3><pre>
-
-private void setListenerToRootView() {  
-    final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);  
-    rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {  
-        @Override  
-        public void onGlobalLayout() {  
-            LogUtils.d(TAG, "[onGlobalLayout] .. in ..");  
-            boolean mKeyboardUp = isKeyboardShown(rootView);  
-            if (mKeyboardUp) {  
-                LogUtils.d(TAG, "键盘弹出..");  
-            } else {  
-                LogUtils.d(TAG, "键盘收起..");  
-            }  
-        }  
-    });  
-}  
-
-private boolean isKeyboardShown(View rootView) {  
-    final int softKeyboardHeight = 100;  
-    Rect r = new Rect();  
-    rootView.getWindowVisibleDisplayFrame(r);  
-    DisplayMetrics dm = rootView.getResources().getDisplayMetrics();  
-    int heightDiff = rootView.getBottom() - r.bottom;  
-    return heightDiff > softKeyboardHeight * dm.density;  
-}  
+<h3 id="3、Android完美检测键盘弹出-收起"><a href="#3、Android完美检测键盘弹出-收起" class="headerlink" title="3、Android完美检测键盘弹出/收起"></a>3、Android完美检测键盘弹出/收起</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setListenerToRootView</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">final</span> View rootView = getWindow().getDecorView().findViewById(android.R.id.content);  </span><br><span class="line">    rootView.getViewTreeObserver().addOnGlobalLayoutListener(<span class="keyword">new</span> ViewTreeObserver.OnGlobalLayoutListener() &#123;  </span><br><span class="line">        <span class="meta">@Override</span>  </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGlobalLayout</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">            LogUtils.d(TAG, <span class="string">"[onGlobalLayout] .. in .."</span>);  </span><br><span class="line">            <span class="keyword">boolean</span> mKeyboardUp = isKeyboardShown(rootView);  </span><br><span class="line">            <span class="keyword">if</span> (mKeyboardUp) &#123;  </span><br><span class="line">                LogUtils.d(TAG, <span class="string">"键盘弹出.."</span>);  </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                LogUtils.d(TAG, <span class="string">"键盘收起.."</span>);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;);  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isKeyboardShown</span><span class="params">(View rootView)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> softKeyboardHeight = <span class="number">100</span>;  </span><br><span class="line">    Rect r = <span class="keyword">new</span> Rect();  </span><br><span class="line">    rootView.getWindowVisibleDisplayFrame(r);  </span><br><span class="line">    DisplayMetrics dm = rootView.getResources().getDisplayMetrics();  </span><br><span class="line">    <span class="keyword">int</span> heightDiff = rootView.getBottom() - r.bottom;  </span><br><span class="line">    <span class="keyword">return</span> heightDiff &gt; softKeyboardHeight * dm.density;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-</pre>
 
-<h3 id="4、ListView点击条目去掉水波纹效果"><a href="#4、ListView点击条目去掉水波纹效果" class="headerlink" title="4、ListView点击条目去掉水波纹效果"></a>4、ListView点击条目去掉水波纹效果</h3><pre><code>&lt;ListView
-       android:listSelector=&quot;@android:color/transparent&quot;
-       android:id=&quot;@+id/schedule_list&quot;
-       android:layout_below=&quot;@id/diverd_line&quot;
-       android:layout_width=&quot;match_parent&quot;
-       android:layout_height=&quot;match_parent&quot;&gt;    </code></pre><p>​    </p>
+<h3 id="4、ListView点击条目去掉水波纹效果"><a href="#4、ListView点击条目去掉水波纹效果" class="headerlink" title="4、ListView点击条目去掉水波纹效果"></a>4、ListView点击条目去掉水波纹效果</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ListView</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:listSelector</span>=<span class="string">"@android:color/transparent"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:id</span>=<span class="string">"@+id/schedule_list"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_below</span>=<span class="string">"@id/diverd_line"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>​    </p>
 <h3 id="5、textView-color设置"><a href="#5、textView-color设置" class="headerlink" title="5、textView color设置"></a>5、textView color设置</h3><pre>mMinuteTip.setTextColor(Color.parseColor("#6495ED"));</pre>
 
 <h3 id="6、RadioGroup"><a href="#6、RadioGroup" class="headerlink" title="6、RadioGroup"></a>6、RadioGroup</h3><p>它有一个clearCheck方法可以把所有选中的RadioButton都取消选中，不用手动对每一个RadioButton进行取消设置，而且手动取消设置还有错误</p>
+<h3 id="7、EditText基本使用"><a href="#7、EditText基本使用" class="headerlink" title="7、EditText基本使用"></a>7、EditText基本使用</h3><ul>
+<li><p>限制字数一行显示</p>
+<pre>
+android:singleLine="true"
+android:maxLength="8"
+</pre>
+</li>
+<li><p>点击屏幕其他地方让EditText失去焦点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给整体布局设置一个触摸监听事件，将焦点获取到整体布局身上</span></span><br><span class="line">ll_sprinkler_schedule_details.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View view, MotionEvent motionEvent)</span> </span>&#123;</span><br><span class="line">            ll_sprinkler_schedule_details.setFocusable(<span class="keyword">true</span>);</span><br><span class="line">            ll_sprinkler_schedule_details.setFocusableInTouchMode(<span class="keyword">true</span>);</span><br><span class="line">            ll_sprinkler_schedule_details.requestFocus();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>光标移动到最后</p>
+<pre>
+et_name.setSelection(et_name.getText().toString().length());
+</pre>
+</li>
+<li><p>获取焦点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果对edittext组件设置了editText.setFocusable(false);需要重新获取焦点则必须执行：</span></span><br><span class="line">editText.setFocusable(ture);</span><br><span class="line">  editText.setFocusableInTouchMode(<span class="keyword">true</span>);</span><br><span class="line">  editText.requestFocus();</span><br><span class="line"> 	<span class="comment">// 注意：这种情况下，当重新点击文本框，是无法打开软键盘，必须点击第二次才能打开。 </span></span><br><span class="line">如果改为：</span><br><span class="line">editText.clearFocus(); 失去焦点</span><br><span class="line">editText.requestFocus();获取焦点</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>EditText增加右边图片点击事件</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">et.setOnTouchListener(<span class="keyword">new</span> OnTouchListener() &#123;</span><br><span class="line">  </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// et.getCompoundDrawables()得到一个长度为4的数组，分别表示左右上下四张图片</span></span><br><span class="line">    Drawable drawable = et.getCompoundDrawables()[<span class="number">2</span>];</span><br><span class="line">    <span class="comment">//如果右边没有图片，不再处理</span></span><br><span class="line">    <span class="keyword">if</span> (drawable == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">//如果不是按下事件，不再处理</span></span><br><span class="line">    <span class="keyword">if</span> (event.getAction() != MotionEvent.ACTION_UP)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (event.getX() &gt; et.getWidth()</span><br><span class="line">  </span><br><span class="line"> - et.getPaddingRight()</span><br><span class="line">   .getIntrinsicWidth())&#123;</span><br><span class="line">             et.setText(<span class="string">""</span>);</span><br><span class="line">         &#125;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="8、ListView适配器更新"><a href="#8、ListView适配器更新" class="headerlink" title="8、ListView适配器更新"></a>8、ListView适配器更新</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(historyListAdapter==<span class="keyword">null</span>)&#123;</span><br><span class="line">    historyListAdapter = <span class="keyword">new</span> DeviceHistoryListAdapter(getActivity(), mSprinklerHistoryList);</span><br><span class="line">    historyListView.setAdapter(historyListAdapter);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    MyLog.i(TAG,<span class="string">"historyListAdapter!=null"</span>);</span><br><span class="line">    historyListView.setAdapter(historyListAdapter);<span class="comment">//要重新绑定一下数据，不然条目显示不出来</span></span><br><span class="line">    historyListAdapter.update(historyListView,mSprinklerHistoryList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">( List&lt;SprinklerHistoryBean&gt; sprinklerHistoryList)</span></span>&#123;</span><br><span class="line">    mSprinklerHistoryList.clear();</span><br><span class="line">    mSprinklerHistoryList.addAll(sprinklerHistoryList);</span><br><span class="line">    notifyDataSetChanged();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Wifi使用"><a href="#Wifi使用" class="headerlink" title="Wifi使用"></a>Wifi使用</h3><ul>
+<li>监听wifi的状态</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">BroadcastReceiver wifiStateBroadcastReceiver=<span class="keyword">new</span> BroadcastReceiver() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">		MyLog.i(TAG,<span class="string">"监听到wifi变化"</span>);</span><br><span class="line">		<span class="keyword">int</span> wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, -<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span> (wifiState == WifiManager.WIFI_STATE_DISABLING) &#123;</span><br><span class="line">			MyLog.i(TAG, <span class="string">"正在关闭"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (wifiState == WifiManager.WIFI_STATE_ENABLING) &#123;</span><br><span class="line">			MyLog.i(TAG, <span class="string">"正在打开"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (wifiState == WifiManager.WIFI_STATE_DISABLED) &#123;</span><br><span class="line">			MyLog.i(TAG, <span class="string">"已经关闭"</span>);</span><br><span class="line">			closeLoadingDialog();</span><br><span class="line">			ssidTv.setText(<span class="string">""</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (wifiState == WifiManager.WIFI_STATE_ENABLED) &#123;</span><br><span class="line">			MyLog.i(TAG, <span class="string">"已经打开"</span>);</span><br><span class="line">			showLoadingDialog();</span><br><span class="line">			wifiManager.startScan();</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			MyLog.i(TAG, <span class="string">"未知状态"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<ul>
+<li><p>获取wifi状态</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> wifiState = wifiManager.getWifiState();</span><br><span class="line"><span class="keyword">switch</span> (wifiState)&#123;</span><br><span class="line">	<span class="keyword">case</span> WifiManager.WIFI_STATE_DISABLED:</span><br><span class="line">		MyLog.i(TAG,<span class="string">"WifiManager.WIFI_STATE_DISABLED"</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> WifiManager.WIFI_STATE_DISABLING:</span><br><span class="line">		MyLog.i(TAG,<span class="string">"WifiManager.WIFI_STATE_DISABLING"</span>);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> WifiManager.WIFI_STATE_ENABLED:</span><br><span class="line">		MyLog.i(TAG,<span class="string">"WifiManager.WIFI_STATE_ENABLED"</span>);</span><br><span class="line">		<span class="keyword">if</span> (intent.getAction().matches(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) &#123;</span><br><span class="line">			closeLoadingDialog();</span><br><span class="line">			processScanResults(wifiManager.getScanResults());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> WifiManager.WIFI_STATE_ENABLING:</span><br><span class="line">    <span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
 
       
     </div>
@@ -587,28 +611,19 @@ private boolean isKeyboardShown(View rootView) {
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/tags.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -642,7 +657,7 @@ private boolean isKeyboardShown(View rootView) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Button的Text英文字体都是大写"><span class="nav-number">1.</span> <span class="nav-text">1、Button的Text英文字体都是大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Button字体的间距和边框间距较大的时候"><span class="nav-number">2.</span> <span class="nav-text">2、Button字体的间距和边框间距较大的时候</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、Android完美检测键盘弹出-收起"><span class="nav-number">3.</span> <span class="nav-text">3、Android完美检测键盘弹出&#x2F;收起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、ListView点击条目去掉水波纹效果"><span class="nav-number">4.</span> <span class="nav-text">4、ListView点击条目去掉水波纹效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、textView-color设置"><span class="nav-number">5.</span> <span class="nav-text">5、textView color设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、RadioGroup"><span class="nav-number">6.</span> <span class="nav-text">6、RadioGroup</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Button的Text英文字体都是大写"><span class="nav-number">1.</span> <span class="nav-text">1、Button的Text英文字体都是大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Button字体的间距和边框间距较大的时候"><span class="nav-number">2.</span> <span class="nav-text">2、Button字体的间距和边框间距较大的时候</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、Android完美检测键盘弹出-收起"><span class="nav-number">3.</span> <span class="nav-text">3、Android完美检测键盘弹出&#x2F;收起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、ListView点击条目去掉水波纹效果"><span class="nav-number">4.</span> <span class="nav-text">4、ListView点击条目去掉水波纹效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、textView-color设置"><span class="nav-number">5.</span> <span class="nav-text">5、textView color设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、RadioGroup"><span class="nav-number">6.</span> <span class="nav-text">6、RadioGroup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、EditText基本使用"><span class="nav-number">7.</span> <span class="nav-text">7、EditText基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、ListView适配器更新"><span class="nav-number">8.</span> <span class="nav-text">8、ListView适配器更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wifi使用"><span class="nav-number">9.</span> <span class="nav-text">Wifi使用</span></a></li></ol></div>
             
 
           </div>
